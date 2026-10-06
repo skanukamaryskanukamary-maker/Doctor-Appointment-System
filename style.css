@@ -1,0 +1,1121 @@
+/* =========================================================
+   MEDIBOOK - PROFESSIONAL COLORFUL DESIGN
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    padding: 18px 7%;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #dbeafe;
+    transform: translateY(-2px);
+}
+
+.nav-links .register-btn {
+    background: white;
+    color: #2563eb;
+    padding: 9px 18px;
+    border-radius: 25px;
+}
+
+.nav-links .register-btn:hover {
+    background: #eff6ff;
+}
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.messages {
+    list-style: none;
+    padding: 15px 7%;
+    background: #ecfdf5;
+    color: #166534;
+    font-weight: 600;
+}
+
+.messages li {
+    padding: 10px 15px;
+}
+
+/* =========================================================
+   HOME - HERO
+   ========================================================= */
+
+.hero-section {
+    min-height: 650px;
+    padding: 90px 7%;
+    background: linear-gradient(
+        135deg,
+        #dbeafe 0%,
+        #ede9fe 50%,
+        #fce7f3 100%
+    );
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 650px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: white;
+    color: #2563eb;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.12);
+}
+
+.hero-text h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    color: #0f172a;
+    margin-bottom: 25px;
+}
+
+.hero-text h1 span {
+    color: #7c3aed;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #475569;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    color: white;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    color: #2563eb;
+    background: white;
+    border: 2px solid #2563eb;
+}
+
+.secondary-btn:hover {
+    background: #eff6ff;
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   HERO STATS
+   ========================================================= */
+
+.hero-stats {
+    display: flex;
+    gap: 45px;
+    margin-top: 45px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stats strong {
+    font-size: 28px;
+    color: #2563eb;
+}
+
+.hero-stats span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* =========================================================
+   HERO IMAGE / DOCTOR
+   ========================================================= */
+
+.hero-image {
+    flex: 0 0 400px;
+    min-height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-circle {
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed,
+        #ec4899
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 125px;
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.3);
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    color: #1e293b;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-one {
+    top: 35px;
+    right: 0;
+}
+
+.card-two {
+    bottom: 70px;
+    left: 0;
+}
+
+.card-three {
+    bottom: 10px;
+    right: 25px;
+}
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services-section {
+    padding: 90px 7%;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-title span {
+    color: #7c3aed;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    color: #0f172a;
+    margin: 10px 0;
+}
+
+.section-title p {
+    color: #64748b;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.service-box {
+    padding: 30px 25px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
+    transition: 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.15);
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.service-icon.blue {
+    background: #dbeafe;
+}
+
+.service-icon.purple {
+    background: #ede9fe;
+}
+
+.service-icon.green {
+    background: #dcfce7;
+}
+
+.service-icon.pink {
+    background: #fce7f3;
+}
+
+.service-box h3 {
+    color: #0f172a;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.service-box p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.service-box a {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* =========================================================
+   WHY MEDIBOOK
+   ========================================================= */
+
+.why-section {
+    padding: 90px 7%;
+    background: linear-gradient(
+        135deg,
+        #eff6ff,
+        #f5f3ff
+    );
+}
+
+.why-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+}
+
+.why-left {
+    flex: 1;
+}
+
+.small-title {
+    color: #7c3aed;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.why-left h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    color: #0f172a;
+    margin: 15px 0;
+}
+
+.why-left h2 span {
+    color: #7c3aed;
+}
+
+.why-left > p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.why-list div {
+    padding: 10px 0;
+    color: #334155;
+    font-weight: 600;
+}
+
+.why-list span {
+    color: #16a34a;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.why-card {
+    width: 360px;
+    padding: 45px 35px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed,
+        #ec4899
+    );
+    box-shadow: 0 20px 45px rgba(124, 58, 237, 0.25);
+}
+
+.heart-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   AUTH / LOGIN / REGISTER
+   ========================================================= */
+
+.auth-section {
+    min-height: 75vh;
+    padding: 70px 20px;
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #ede9fe,
+        #fce7f3
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 550px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+.auth-card h2 {
+    text-align: center;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-form label {
+    font-weight: 700;
+    color: #334155;
+    margin-top: 8px;
+}
+
+.auth-form input,
+.auth-form textarea,
+.auth-form select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+.auth-form input:focus,
+.auth-form textarea:focus,
+.auth-form select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.auth-form button {
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* =========================================================
+   DOCTORS PAGE
+   ========================================================= */
+
+.doctors {
+    padding: 80px 7%;
+    background: #f8fafc;
+    min-height: 70vh;
+}
+
+.doctor-container {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.doctor-profile {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.profile-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dbeafe, #ede9fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
+.doctor-profile h3 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.doctor-profile p {
+    color: #64748b;
+    margin: 6px 0;
+}
+
+.doctor-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 18px;
+    border-radius: 9px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.service-card {
+    padding: 25px;
+    border-radius: 15px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+}
+
+.service-card h3 {
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #64748b;
+}
+
+.service-card .service-icon {
+    margin: 0 auto 15px;
+}
+
+/* =========================================================
+   APPOINTMENT STATUS
+   ========================================================= */
+
+.status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #0f172a;
+    color: white;
+    padding: 60px 7% 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-content h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.footer-content h4 {
+    margin-bottom: 15px;
+}
+
+.footer-content p {
+    color: #cbd5e1;
+    max-width: 400px;
+}
+
+.footer-content a {
+    display: block;
+    color: #cbd5e1;
+    margin: 9px 0;
+    transition: 0.2s;
+}
+
+.footer-content a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #334155;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 800px;
+    }
+
+    .hero-buttons,
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .doctor-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-content {
+        flex-direction: column;
+    }
+
+    .why-left {
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-section {
+        padding: 60px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-image {
+        transform: scale(0.8);
+        margin-top: -30px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+
+    .services-section,
+    .why-section,
+    .doctors {
+        padding: 60px 20px;
+    }
+
+    .services-container,
+    .doctor-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2,
+    .why-left h2 {
+        font-size: 32px;
+    }
+
+    .auth-card {
+        padding: 25px;
+    }
+
+    .why-card {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+.doctor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-icon {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+}
+
+
+
+/* ================= DOCTOR DETAIL IMAGE ================= */
+
+.doctor-detail-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 70px;
+}
+
+.doctor-detail-image .doctor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* ================= MY APPOINTMENT DOCTOR IMAGE ================= */
+
+.appointment-doctor-image {
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+}
+
+.appointment-doctor-image .doctor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* =========================================================
+   COLORFUL LOGIN & REGISTER PAGES
+   ========================================================= */
+
+.auth-section {
+    min-height: calc(100vh - 180px);
+    padding: 70px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at top left, #dbeafe, transparent 35%),
+        radial-gradient(circle at bottom right, #f5d0fe, transparent 35%),
+        linear-gradient(135deg, #eef6ff, #fff1fb);
+}
+
+
+/* Main Card */
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+    padding: 42px 45px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 24px;
+    box-shadow:
+        0 20px 50px rgba(79, 70, 229, 0.18),
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Top colorful line */
+
+.auth-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed,
+        #ec4899
+    );
+}
+
+
+/* Heading */
+
+.auth-card h2,
+.auth-card h1 {
+    text-align: center;
+    margin-bottom: 10px;
+
+    color: #172554;
+    font-size: 30px;
+}
+
+
+/* Subtitle */
+
+.auth-card > p {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 28px;
+}
+
+
+/* Form labels */
+
+.auth-card label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 600;
+    color: #334155;
+}
+
+
+/* Input fields */
+
+.auth-card input,
+.auth-card select,
+.auth-card textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    margin-bottom: 18px;
+
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: all 0.25s ease;
+
+    box-sizing: border-box;
+}
+
+
+/* Input focus */
+
+.auth-card input:focus,
+.auth-card select:focus,
+.auth-card textarea:focus {
+    border-color: #6366f1;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+/* Login/Register button */
+
+.auth-card button {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+
+.auth-card button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(79, 70, 229, 0.35);
+}
+
+
+/* Register/Login link */
+
+.auth-card a {
+    color: #6366f1;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.auth-card a:hover {
+    color: #ec4899;
+    text-decoration: underline;
+}
+
+
+/* Form bottom text */
+
+.auth-card .auth-link {
+    text-align: center;
+    margin-top: 22px;
+    color: #64748b;
+}
+
+
+/* Error messages */
+
+.auth-card .error,
+.auth-card .errorlist {
+    color: #dc2626;
+    font-size: 14px;
+}
+
+
+/* Success message */
+
+.auth-card .success {
+    color: #059669;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   AUTH ICON
+   ========================================================= */
+
+.auth-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #ede9fe,
+        #fce7f3
+    );
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.15);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .auth-section {
+        padding: 40px 15px;
+    }
+
+    .auth-card {
+        padding: 35px 25px;
+    }
+
+    .auth-card h2,
+    .auth-card h1 {
+        font-size: 25px;
+    }
+
+}

@@ -1,0 +1,587 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediBook - Doctor Appointment Booking</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏥 MediBook
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+        <a href="{% url 'doctor_list' %}">
+            Find Doctors
+        </a>
+
+        {% if user.is_authenticated %}
+
+            <a href="{% url 'dashboard' %}">
+                Dashboard
+            </a>
+
+            <a href="{% url 'my_appointments' %}">
+                My Appointments
+            </a>
+
+            <a href="{% url 'logout' %}"
+               class="register-btn">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
+            <a href="{% url 'register' %}"
+               class="register-btn">
+                Register
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     MESSAGES
+===================================================== -->
+
+{% if messages %}
+
+    <ul class="messages">
+
+        {% for message in messages %}
+
+            <li>
+                {{ message }}
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endif %}
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="hero-content">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-text">
+
+            <div class="hero-badge">
+                🏥 Trusted Healthcare Platform
+            </div>
+
+            <h1>
+                Your Health,
+                <span>Our Priority</span>
+            </h1>
+
+            <p>
+                Find experienced doctors, book appointments easily,
+                and manage your healthcare journey with MediBook.
+            </p>
+
+
+            <!-- BUTTONS -->
+
+            <div class="hero-buttons">
+
+                <a href="{% url 'doctor_list' %}"
+                   class="primary-btn">
+
+                    👨‍⚕️ Find a Doctor
+
+                </a>
+
+
+                {% if user.is_authenticated %}
+
+                    <a href="{% url 'dashboard' %}"
+                       class="secondary-btn">
+
+                        📊 Dashboard
+
+                    </a>
+
+                {% else %}
+
+                    <a href="{% url 'register' %}"
+                       class="secondary-btn">
+
+                        🚀 Get Started
+
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="hero-stats">
+
+                <div>
+
+                    <strong>100+</strong>
+
+                    <span>
+                        Doctors
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>20+</strong>
+
+                    <span>
+                        Specializations
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>1000+</strong>
+
+                    <span>
+                        Patients
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="hero-image">
+
+
+            <!-- Doctor Circle -->
+
+            <div class="doctor-circle">
+
+                👨‍⚕️
+
+            </div>
+
+
+            <!-- Floating Card 1 -->
+
+            <div class="floating-card card-one">
+
+                ⭐ Experienced Doctors
+
+            </div>
+
+
+            <!-- Floating Card 2 -->
+
+            <div class="floating-card card-two">
+
+                📅 Easy Booking
+
+            </div>
+
+
+            <!-- Floating Card 3 -->
+
+            <div class="floating-card card-three">
+
+                ❤️ Quality Care
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES SECTION
+===================================================== -->
+
+<section class="services-section">
+
+    <div class="section-title">
+
+        <span>
+            OUR SERVICES
+        </span>
+
+        <h2>
+            Healthcare Made Simple
+        </h2>
+
+        <p>
+            MediBook makes it simple to find the right doctor
+            and manage your appointments.
+        </p>
+
+    </div>
+
+
+    <div class="services-container">
+
+
+        <!-- SERVICE 1 -->
+
+        <div class="service-box">
+
+            <div class="service-icon blue">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Find Doctors
+            </h3>
+
+            <p>
+                Search for doctors based on their name,
+                specialization, qualification and experience.
+            </p>
+
+            <a href="{% url 'doctor_list' %}">
+                Find Doctors →
+            </a>
+
+        </div>
+
+
+        <!-- SERVICE 2 -->
+
+        <div class="service-box">
+
+            <div class="service-icon purple">
+                📅
+            </div>
+
+            <h3>
+                Book Appointment
+            </h3>
+
+            <p>
+                Choose your preferred doctor and conveniently
+                book an appointment online.
+            </p>
+
+            <a href="{% url 'doctor_list' %}">
+                Book Now →
+            </a>
+
+        </div>
+
+
+        <!-- SERVICE 3 -->
+
+        <div class="service-box">
+
+            <div class="service-icon green">
+                📋
+            </div>
+
+            <h3>
+                Manage Appointments
+            </h3>
+
+            <p>
+                View your upcoming and previous appointments
+                from your MediBook account.
+            </p>
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'my_appointments' %}">
+                    My Appointments →
+                </a>
+
+            {% else %}
+
+                <a href="{% url 'login' %}">
+                    Login to View →
+                </a>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- SERVICE 4 -->
+
+        <div class="service-box">
+
+            <div class="service-icon pink">
+                ❤️
+            </div>
+
+            <h3>
+                Quality Healthcare
+            </h3>
+
+            <p>
+                Connect with qualified healthcare professionals
+                and get reliable medical consultation.
+            </p>
+
+            <a href="{% url 'doctor_list' %}">
+                Explore Doctors →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY MEDIBOOK SECTION
+===================================================== -->
+
+<section class="why-section">
+
+    <div class="why-content">
+
+
+        <!-- LEFT -->
+
+        <div class="why-left">
+
+            <div class="small-title">
+                WHY MEDIBOOK?
+            </div>
+
+            <h2>
+                Healthcare That
+                <span>Cares About You</span>
+            </h2>
+
+            <p>
+                MediBook is designed to make doctor appointment
+                booking simple, convenient and accessible.
+            </p>
+
+
+            <div class="why-list">
+
+                <div>
+                    <span>✓</span>
+                    Experienced Healthcare Professionals
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Easy Online Appointment Booking
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Simple Patient Dashboard
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Manage Your Appointments Easily
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Convenient Doctor Search
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="why-card">
+
+            <div class="heart-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Your Health Matters
+            </h3>
+
+            <p>
+                Take control of your healthcare journey
+                with MediBook.
+            </p>
+
+            <a href="{% url 'doctor_list' %}"
+               class="primary-btn">
+
+                Find Your Doctor
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <!-- ABOUT -->
+
+        <div>
+
+            <h3>
+                🏥 MediBook
+            </h3>
+
+            <p>
+                Your trusted doctor appointment booking
+                platform for convenient healthcare.
+            </p>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div>
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'doctor_list' %}">
+                Find Doctors
+            </a>
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'dashboard' %}">
+                    Dashboard
+                </a>
+
+                <a href="{% url 'my_appointments' %}">
+                    My Appointments
+                </a>
+
+            {% else %}
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+                <a href="{% url 'register' %}">
+                    Register
+                </a>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div>
+
+            <h4>
+                Services
+            </h4>
+
+            <a href="{% url 'doctor_list' %}">
+                Find Doctors
+            </a>
+
+            <a href="{% url 'doctor_list' %}">
+                Book Appointment
+            </a>
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'my_appointments' %}">
+                    My Appointments
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 MediBook. All Rights Reserved.
+        </p>
+
+        <p>
+            Doctor Appointment Booking System
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>

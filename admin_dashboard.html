@@ -1,0 +1,433 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard - MediBook</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏥 MediBook Admin
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            Website
+        </a>
+
+        <a href="{% url 'admin_dashboard' %}">
+            Dashboard
+        </a>
+
+        <a href="/admin/">
+            Django Admin
+        </a>
+
+        <a
+            href="{% url 'logout' %}"
+            class="register-btn"
+        >
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="doctors">
+
+    <div class="section-title">
+
+        <h2>
+            📊 Admin Dashboard
+        </h2>
+
+        <p>
+            Welcome, {{ request.user.username }}!
+            Manage MediBook from one place.
+        </p>
+
+    </div>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <div class="doctor-container">
+
+
+        <!-- DOCTORS -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                {{ total_doctors }}
+            </h3>
+
+            <p>
+                Total Doctors
+            </p>
+
+            <a
+                href="/admin/doctors/doctor/"
+                class="doctor-btn"
+            >
+                Manage Doctors
+            </a>
+
+        </div>
+
+
+        <!-- PATIENTS -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+            <h3>
+                {{ total_patients }}
+            </h3>
+
+            <p>
+                Total Patients
+            </p>
+
+            <a
+                href="/admin/auth/user/"
+                class="doctor-btn"
+            >
+                Manage Patients
+            </a>
+
+        </div>
+
+
+        <!-- APPOINTMENTS -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                📅
+            </div>
+
+            <h3>
+                {{ total_appointments }}
+            </h3>
+
+            <p>
+                Total Appointments
+            </p>
+
+            <a
+                href="/admin/appointments/appointment/"
+                class="doctor-btn"
+            >
+                Manage Appointments
+            </a>
+
+        </div>
+
+
+        <!-- PENDING -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                ⏳
+            </div>
+
+            <h3>
+                {{ pending_appointments }}
+            </h3>
+
+            <p>
+                Pending Appointments
+            </p>
+
+        </div>
+
+
+        <!-- CONFIRMED -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                ✅
+            </div>
+
+            <h3>
+                {{ confirmed_appointments }}
+            </h3>
+
+            <p>
+                Confirmed Appointments
+            </p>
+
+        </div>
+
+
+        <!-- REJECTED -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                ❌
+            </div>
+
+            <h3>
+                {{ rejected_appointments }}
+            </h3>
+
+            <p>
+                Rejected Appointments
+            </p>
+
+        </div>
+
+
+        <!-- CANCELLED -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                🚫
+            </div>
+
+            <h3>
+                {{ cancelled_appointments }}
+            </h3>
+
+            <p>
+                Cancelled Appointments
+            </p>
+
+        </div>
+
+
+        <!-- COMPLETED -->
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                🎉
+            </div>
+
+            <h3>
+                {{ completed_appointments }}
+            </h3>
+
+            <p>
+                Completed Appointments
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RECENT APPOINTMENTS ================= -->
+
+    <div class="section-title">
+
+        <h2>
+            📅 Recent Appointments
+        </h2>
+
+    </div>
+
+
+    <div class="doctor-container">
+
+        {% for appointment in recent_appointments %}
+
+            <div class="doctor-profile">
+
+                <div class="profile-icon">
+                    📅
+                </div>
+
+                <h3>
+                    {{ appointment.patient.username }}
+                </h3>
+
+                <p>
+                    👨‍⚕️ Dr. {{ appointment.doctor.name }}
+                </p>
+
+                <p>
+                    📅 {{ appointment.appointment_date }}
+                </p>
+
+                <p>
+                    🕐 {{ appointment.appointment_time }}
+                </p>
+
+                <p>
+                    Status:
+                    <strong>
+                        {{ appointment.status }}
+                    </strong>
+                </p>
+
+            </div>
+
+        {% empty %}
+
+            <div class="auth-card">
+
+                <h3>
+                    No appointments yet
+                </h3>
+
+                <p>
+                    There are no appointments in the system.
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- ================= QUICK ACTIONS ================= -->
+
+    <div class="section-title">
+
+        <h2>
+            ⚡ Quick Actions
+        </h2>
+
+    </div>
+
+
+    <div class="doctor-container">
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Manage Doctors
+            </h3>
+
+            <p>
+                Add, edit or remove doctors.
+            </p>
+
+            <a
+                href="/admin/doctors/doctor/"
+                class="doctor-btn"
+            >
+                Open Doctors
+            </a>
+
+        </div>
+
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                🏥
+            </div>
+
+            <h3>
+                Specializations
+            </h3>
+
+            <p>
+                Manage doctor specializations.
+            </p>
+
+            <a
+                href="/admin/doctors/specialization/"
+                class="doctor-btn"
+            >
+                Open Specializations
+            </a>
+
+        </div>
+
+
+        <div class="doctor-profile">
+
+            <div class="profile-icon">
+                📅
+            </div>
+
+            <h3>
+                Appointments
+            </h3>
+
+            <p>
+                Confirm or reject appointments.
+            </p>
+
+            <a
+                href="/admin/appointments/appointment/"
+                class="doctor-btn"
+            >
+                Open Appointments
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        🏥 MediBook
+    </h3>
+
+    <p>
+        Admin Dashboard
+    </p>
+
+    <p>
+        © 2026 MediBook. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

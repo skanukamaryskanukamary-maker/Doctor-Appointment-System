@@ -1,0 +1,195 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - MediBook</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏥 MediBook
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/doctors/">
+            Find Doctors
+        </a>
+
+        <a href="/dashboard/">
+            Dashboard
+        </a>
+
+        <a
+            href="/logout/"
+            class="register-btn"
+        >
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="auth-section">
+
+    <div class="auth-card">
+
+        <h2>
+            Welcome, {{ request.user.username }}!
+        </h2>
+
+        <p class="auth-subtitle">
+            Welcome to your MediBook patient dashboard.
+        </p>
+
+
+        <!-- ================= FIND DOCTOR ================= -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Find a Doctor
+            </h3>
+
+            <p>
+                Search doctors by name or specialization
+                and book your appointment.
+            </p>
+
+            <br>
+
+            <a
+                href="/doctors/"
+                class="doctor-btn"
+            >
+                Find Doctors
+            </a>
+
+        </div>
+
+
+        <br>
+
+
+        <!-- ================= MY APPOINTMENTS ================= -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📅
+            </div>
+
+            <h3>
+                My Appointments
+            </h3>
+
+            <p>
+                View and manage your doctor appointments.
+            </p>
+
+            <br>
+
+            <a
+                href="{% url 'my_appointments' %}"
+                class="doctor-btn"
+            >
+                📅 My Appointments
+            </a>
+
+        </div>
+
+
+        <br>
+
+
+        <!-- ================= MY PROFILE ================= -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                👤
+            </div>
+
+            <h3>
+                My Profile
+            </h3>
+
+            <p>
+                View and manage your patient profile.
+            </p>
+
+            <br>
+
+            <a
+                href="#"
+                class="doctor-btn"
+            >
+                👤 My Profile
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        🏥 MediBook
+    </h3>
+
+    <p>
+        Doctor Appointment Booking System
+    </p>
+
+    <p>
+        © 2026 MediBook. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+```

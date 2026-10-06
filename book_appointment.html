@@ -1,0 +1,218 @@
+```html
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Book Appointment - MediBook</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏥 MediBook
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/doctors/">
+            Find Doctors
+        </a>
+
+        <a href="/dashboard/">
+            Dashboard
+        </a>
+
+        <a
+            href="/logout/"
+            class="register-btn"
+        >
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- BOOK APPOINTMENT -->
+
+<section class="auth-section">
+
+    <div class="auth-card">
+
+        <h2>
+            📅 Book Appointment
+        </h2>
+
+        <p class="auth-subtitle">
+            Book an appointment with your selected doctor.
+        </p>
+
+
+        <!-- DOCTOR INFORMATION -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Dr. {{ doctor.name }}
+            </h3>
+
+            <p>
+                <strong>
+                    {{ doctor.specialization.name }}
+                </strong>
+            </p>
+
+            <p>
+                {{ doctor.qualification }}
+            </p>
+
+            <p>
+                💰 Consultation Fee:
+                ₹{{ doctor.consultation_fee }}
+            </p>
+
+            <p>
+                📅 Available:
+                {{ doctor.available_days }}
+            </p>
+
+            <p>
+                🕐 Time:
+                {{ doctor.available_time }}
+            </p>
+
+        </div>
+
+        <br>
+
+
+        <!-- APPOINTMENT FORM -->
+
+        <form
+            method="POST"
+            class="auth-form"
+        >
+
+            {% csrf_token %}
+
+
+            <!-- DATE -->
+
+            <label for="appointment_date">
+                Appointment Date
+            </label>
+
+            <input
+                type="date"
+                id="appointment_date"
+                name="appointment_date"
+                required
+            >
+
+
+            <!-- TIME -->
+
+            <label for="appointment_time">
+                Appointment Time
+            </label>
+
+            <input
+                type="time"
+                id="appointment_time"
+                name="appointment_time"
+                required
+            >
+
+
+            <!-- REASON -->
+
+            <label for="reason">
+                Reason for Appointment
+            </label>
+
+            <textarea
+                id="reason"
+                name="reason"
+                rows="4"
+                placeholder="Enter your reason..."
+            ></textarea>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="doctor-btn"
+            >
+                📅 Book Appointment
+            </button>
+
+        </form>
+
+
+        <br>
+
+        <a
+            href="/doctors/"
+            class="doctor-btn"
+        >
+            ← Back to Doctors
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        🏥 MediBook
+    </h3>
+
+    <p>
+        Doctor Appointment Booking System
+    </p>
+
+    <p>
+        © 2026 MediBook. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+```

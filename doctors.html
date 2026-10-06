@@ -1,0 +1,338 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Find Doctors - MediBook</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏥 MediBook
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+        {% if request.user.is_authenticated %}
+
+            <a href="{% url 'dashboard' %}">
+                Dashboard
+            </a>
+
+            <a href="{% url 'doctor_list' %}">
+                Find Doctors
+            </a>
+
+            <a href="{% url 'my_appointments' %}">
+                My Appointments
+            </a>
+
+            <a
+                href="{% url 'logout' %}"
+                class="register-btn"
+            >
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+
+            <a
+                href="{% url 'register' %}"
+                class="register-btn"
+            >
+                Register
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+
+<!-- ================= DOCTORS SECTION ================= -->
+
+<section class="doctors">
+
+    <div class="section-title">
+
+        <h2>
+            Find a Doctor
+        </h2>
+
+        <p>
+            Search doctors by name, specialization or qualification.
+        </p>
+
+    </div>
+
+
+    <!-- ================= SEARCH FORM ================= -->
+
+    <div class="doctor-search">
+
+        <form
+            method="GET"
+            action="{% url 'doctor_list' %}"
+            class="doctor-search-form"
+        >
+
+            <input
+                type="text"
+                name="search"
+                value="{{ search }}"
+                placeholder="Search doctor name, specialization or qualification..."
+            >
+
+            <select name="specialization">
+
+                <option value="">
+                    All Specializations
+                </option>
+
+                {% for specialization in specializations %}
+
+                    <option
+                        value="{{ specialization.id }}"
+                        {% if selected_specialization == specialization.id|stringformat:"s" %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ specialization.name }}
+                    </option>
+
+                {% endfor %}
+
+            </select>
+
+
+            <button
+                type="submit"
+                class="doctor-btn"
+            >
+                🔍 Search
+            </button>
+
+
+            <a
+                href="{% url 'doctor_list' %}"
+                class="doctor-btn"
+            >
+                🔄 Clear
+            </a>
+
+        </form>
+
+    </div>
+
+
+    <!-- ================= SEARCH RESULTS ================= -->
+
+    {% if doctors %}
+
+        <div class="doctor-container">
+
+            {% for doctor in doctors %}
+
+                <div class="doctor-profile">
+
+
+                    <!-- ================= DOCTOR PROFILE IMAGE ================= -->
+
+                    <div class="profile-icon">
+
+                        {% if doctor.profile_image %}
+
+                            <img
+                                src="{{ doctor.profile_image.url }}"
+                                alt="Dr. {{ doctor.name }}"
+                                class="doctor-image"
+                            >
+
+                        {% else %}
+
+                            👨‍⚕️
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ================= DOCTOR NAME ================= -->
+
+                    <h3>
+                        Dr. {{ doctor.name }}
+                    </h3>
+
+
+                    <!-- ================= SPECIALIZATION ================= -->
+
+                    <p>
+
+                        <strong>
+                            {{ doctor.specialization.name }}
+                        </strong>
+
+                    </p>
+
+
+                    <!-- ================= QUALIFICATION ================= -->
+
+                    <p>
+                        🎓 {{ doctor.qualification }}
+                    </p>
+
+
+                    <!-- ================= EXPERIENCE ================= -->
+
+                    <p>
+                        💼 {{ doctor.experience }}
+                        years experience
+                    </p>
+
+
+                    <!-- ================= CONSULTATION FEE ================= -->
+
+                    <p>
+                        💰 Consultation Fee:
+                        ₹{{ doctor.consultation_fee }}
+                    </p>
+
+
+                    <!-- ================= AVAILABLE DAYS ================= -->
+
+                    <p>
+                        📅 Available:
+                        {{ doctor.available_days }}
+                    </p>
+
+
+                    <!-- ================= AVAILABLE TIME ================= -->
+
+                    <p>
+                        🕐 Time:
+                        {{ doctor.available_time }}
+                    </p>
+
+
+                    <!-- ================= VIEW PROFILE ================= -->
+
+                    <a
+                        href="{% url 'doctor_detail' doctor.id %}"
+                        class="doctor-btn"
+                    >
+                        👨‍⚕️ View Profile
+                    </a>
+
+
+                    <!-- ================= BOOK APPOINTMENT ================= -->
+
+                    {% if request.user.is_authenticated %}
+
+                        <a
+                            href="{% url 'book_appointment' doctor.id %}"
+                            class="doctor-btn"
+                        >
+                            📅 Book Appointment
+                        </a>
+
+                    {% else %}
+
+                        <a
+                            href="{% url 'login' %}"
+                            class="doctor-btn"
+                        >
+                            🔐 Login to Book
+                        </a>
+
+                    {% endif %}
+
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+    {% else %}
+
+
+        <!-- ================= NO RESULTS ================= -->
+
+        <div
+            class="auth-card"
+            style="margin: 40px auto;"
+        >
+
+            <h3>
+                😕 No Doctors Found
+            </h3>
+
+            <p>
+                No doctors match your search.
+            </p>
+
+            <br>
+
+            <a
+                href="{% url 'doctor_list' %}"
+                class="doctor-btn"
+            >
+                🔄 Show All Doctors
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        🏥 MediBook
+    </h3>
+
+    <p>
+        Doctor Appointment Booking System
+    </p>
+
+    <p>
+        © 2026 MediBook. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
